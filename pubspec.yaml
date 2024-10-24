@@ -1,0 +1,31 @@
+name: 'haber_uygulamasi'
+version: '1.0.0+1'
+publish_to: none
+environment:
+  sdk: '^3.5.3'
+description: A new Flutter project.
+dependencies:
+  auto_route: '^9.2.2'
+  cached_network_image: '^3.4.1'
+  cupertino_icons: '^1.0.8'
+  equatable: '^2.0.5'
+  flutter:
+    sdk: flutter
+  hive: '^2.2.3'
+  hive_flutter: '^1.1.0'
+  http: '^1.2.2'
+  image_picker: '^1.0.4'
+  intl: '^0.18.1'
+  path_provider: '^2.1.1'
+  provider: '^6.1.2'
+  responsive_sizer: '^3.2.0'
+dev_dependencies:
+  auto_route_generator: '^9.0.0'
+  build_runner: '^2.4.13'
+  flutter_test:
+    sdk: flutter
+  hive_generator: '^2.0.1'
+  pubspec_dependency_sorter: '^1.0.5'
+  very_good_analysis: '^6.0.0'
+flutter:
+  uses-material-design: true
