@@ -21,22 +21,23 @@ class Article extends Equatable {
   });
 
   factory Article.fromJson(
-    Map<String, String> json, {
+    Map<String, dynamic> json, {
     String category = 'general',
   }) {
     return Article(
-      title: json['title'] ?? '',
-      description: json['description'] ?? '',
-      content: json['content'] ?? '',
-      imageUrl: json['urlToImage'] ?? '',
-      author: json['author'] ?? 'Unknown',
-      publishedAt: DateTime.parse(
-        json['publishedAt'] ?? DateTime.now().toIso8601String(),
-      ),
-      url: json['url'] ?? '',
+      title: json['title'] as String? ?? '',
+      description: json['description'] as String? ?? '',
+      content: json['content'] as String? ?? '',
+      imageUrl: json['urlToImage'] as String? ?? '',
+      author: json['author'] as String? ?? 'Unknown',
+      publishedAt: json['publishedAt'] != null
+          ? DateTime.parse(json['publishedAt'] as String)
+          : DateTime.now(),
+      url: json['url'] as String? ?? '',
       category: category,
     );
   }
+
   @HiveField(0)
   final String title;
   @HiveField(1)

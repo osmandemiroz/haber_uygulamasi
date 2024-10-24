@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_dynamic_calls, public_member_api_docs
+// ignore_for_file: public_member_api_docs, avoid_dynamic_calls
 
 import 'dart:convert';
 import 'package:haber_uygulamasi/product/core/api_constants.dart';
@@ -22,7 +22,7 @@ class ApiService {
         return (data['articles'] as List)
             .map(
               (article) => Article.fromJson(
-                article as Map<String, String>,
+                article as Map<String, dynamic>,
                 category: category,
               ),
             )
@@ -44,7 +44,7 @@ class ApiService {
       if (response.statusCode == 200) {
         final data = json.decode(response.body);
         return (data['articles'] as List)
-            .map((article) => Article.fromJson(article as Map<String, String>))
+            .map((article) => Article.fromJson(article as Map<String, dynamic>))
             .toList();
       }
       throw Exception('Failed to search news');
