@@ -19,6 +19,19 @@ class NewsPage extends StatelessWidget {
       builder: (context, viewModel, child) {
         return Scaffold(
           appBar: AppBar(
+            actions: [
+              IconButton(
+                icon: const Icon(Icons.search),
+                onPressed: () {
+                  showSearch(
+                    context: context,
+                    delegate: SearchBar(
+                      context,
+                    ),
+                  );
+                },
+              ),
+            ],
             title: Text(
               viewModel.isSearching
                   ? 'Arama Sonuçları'
@@ -44,6 +57,85 @@ class NewsPage extends StatelessWidget {
               ),
             ],
           ),
+        );
+      },
+    );
+  }
+}
+
+final class SearchBar extends SearchDelegate<String> {
+  SearchBar(
+    this.context,
+  );
+  final BuildContext context;
+  NewsViewModel get viewModel => context.read<NewsViewModel>();
+  @override
+  List<Widget>? buildActions(BuildContext context) {
+    return [
+      IconButton(
+        icon: const Icon(Icons.clear),
+        onPressed: () {
+          query = '';
+        },
+      ),
+    ];
+  }
+
+  @override
+  Widget? buildLeading(BuildContext context) {
+    return IconButton(
+      icon: const Icon(Icons.arrow_back),
+      onPressed: () {
+        close(context, '');
+      },
+    );
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    final matchQuery = <String>[];
+    for (final item in AppConstants.categoryTitles.keys) {
+      if (item.toLowerCase().contains(query.toLowerCase())) {
+        matchQuery.add(item);
+      }
+    }
+    return ListView.builder(
+      itemCount: matchQuery.length,
+      itemBuilder: (context, index) {
+        final result = matchQuery[index];
+        return ListTile(
+          onTap: () {
+            query = result;
+            viewModel.setCategory(result);
+            close(context, result);
+          },
+          title:
+              Text(result.substring(0, 1).toUpperCase() + result.substring(1)),
+        );
+      },
+    );
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    final matchQuery = <String>[];
+    for (final item in AppConstants.categoryTitles.keys) {
+      if (item.toLowerCase().contains(query.toLowerCase())) {
+        matchQuery.add(item);
+      }
+    }
+    return ListView.builder(
+      itemCount: matchQuery.length,
+      itemBuilder: (context, index) {
+        final result = matchQuery[index];
+        return ListTile(
+          title:
+              Text(result.substring(0, 1).toUpperCase() + result.substring(1)),
+          onTap: () {
+            query = result;
+            viewModel.setCategory(result);
+            close(context, result);
+          },
         );
       },
     );
