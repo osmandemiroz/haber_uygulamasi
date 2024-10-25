@@ -14,19 +14,28 @@ class CategoryListWidget extends StatelessWidget {
     return Consumer<NewsViewModel>(
       builder: (context, viewModel, child) {
         return SizedBox(
-          height: 50.h,
+          height: 4.h,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            padding: EdgeInsets.symmetric(horizontal: 8.w),
+            padding: EdgeInsets.symmetric(horizontal: 2.w),
             itemCount: AppConstants.categories.length,
             itemBuilder: (context, index) {
               final category = AppConstants.categories[index];
               return Padding(
                 padding: EdgeInsets.symmetric(horizontal: 4.w),
                 child: FilterChip(
+                  showCheckmark: false,
+                  clipBehavior: Clip.antiAlias,
+                  shape: StadiumBorder(
+                    side: BorderSide(
+                      color: viewModel.selectedCategory == category
+                          ? Theme.of(context).primaryColor
+                          : Colors.transparent,
+                    ),
+                  ),
+                  selectedColor: Theme.of(context).primaryColor,
                   label: Text(
                     AppConstants.categoryTitles[category] ?? category,
-                    style: TextStyle(fontSize: 14.sp),
                   ),
                   selected: viewModel.selectedCategory == category,
                   onSelected: (_) => viewModel.setCategory(category),

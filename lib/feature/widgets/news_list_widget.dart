@@ -27,7 +27,6 @@ class NewsListWidget extends StatelessWidget {
     if (error.isNotEmpty) {
       return Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               'Bir hata oluştu',
@@ -61,7 +60,7 @@ class NewsListWidget extends StatelessWidget {
     return RefreshIndicator(
       onRefresh: onRefresh,
       child: ListView.builder(
-        padding: EdgeInsets.symmetric(vertical: 8.h),
+        padding: EdgeInsets.symmetric(vertical: 4.h),
         itemCount: articles.length,
         itemBuilder: (context, index) {
           return NewsCardWidget(article: articles[index]);

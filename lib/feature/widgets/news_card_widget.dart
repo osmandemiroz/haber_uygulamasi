@@ -19,7 +19,7 @@ class NewsCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+      margin: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
       child: InkWell(
         onTap: () => context.router.push(NewsDetailRoute(article: article)),
         child: Column(
@@ -31,43 +31,44 @@ class NewsCardWidget extends StatelessWidget {
                     const BorderRadius.vertical(top: Radius.circular(12)),
                 child: CachedNetworkImage(
                   imageUrl: article.imageUrl,
-                  height: 200.h,
+                  height: 32.h,
                   width: double.infinity,
-                  fit: BoxFit.cover,
+                  fit: BoxFit.fill,
                   placeholder: (context, url) => Center(
                     child: SizedBox(
-                      height: 200.h,
+                      height: 4.h,
                       child: const CircularProgressIndicator(),
                     ),
                   ),
                   errorWidget: (context, url, error) => SizedBox(
-                    height: 200.h,
+                    height: 16.h,
                     child: const Icon(CupertinoIcons.person),
                   ),
                 ),
               ),
             Padding(
-              padding: EdgeInsets.all(16.w),
+              padding: EdgeInsets.all(8.w),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     article.title,
                     style: TextStyle(
-                      fontSize: 16.sp,
+                      color: Colors.black,
+                      fontSize: 18.sp,
                       fontWeight: FontWeight.bold,
                     ),
-                    maxLines: 2,
+                    maxLines: 5,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  SizedBox(height: 8.h),
+                  SizedBox(height: 2.h),
                   Text(
                     article.description,
                     style: TextStyle(fontSize: 14.sp),
                     maxLines: 3,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  SizedBox(height: 8.h),
+                  SizedBox(height: 4.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -75,14 +76,14 @@ class NewsCardWidget extends StatelessWidget {
                         article.author,
                         style: TextStyle(
                           fontSize: 12.sp,
-                          color: Colors.grey,
+                          color: Colors.black,
                         ),
                       ),
                       Text(
                         DateFormat('dd.MM.yyyy').format(article.publishedAt),
                         style: TextStyle(
                           fontSize: 12.sp,
-                          color: Colors.grey,
+                          color: Colors.black,
                         ),
                       ),
                     ],

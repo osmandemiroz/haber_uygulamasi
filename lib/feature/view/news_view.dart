@@ -29,8 +29,11 @@ class NewsPage extends StatelessWidget {
           ),
           body: Column(
             children: [
-              const SearchBar(),
-              if (!viewModel.isSearching) const CategoryListWidget(),
+              if (!viewModel.isSearching)
+                Padding(
+                  padding: EdgeInsets.only(top: 4.h, bottom: 1.h),
+                  child: const CategoryListWidget(),
+                ),
               Expanded(
                 child: NewsListWidget(
                   articles: viewModel.articles,
