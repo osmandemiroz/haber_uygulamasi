@@ -16,11 +16,11 @@ void main() async {
   // Initialize cache
   await CacheManager.instance.init();
 
-  runApp(App());
+  runApp(_App());
 }
 
-class App extends StatelessWidget {
-  App({super.key});
+class _App extends StatelessWidget {
+  _App();
 
   final _appRouter = AppRouter();
 

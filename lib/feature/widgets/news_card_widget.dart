@@ -31,7 +31,7 @@ class NewsCardWidget extends StatelessWidget {
                     const BorderRadius.vertical(top: Radius.circular(12)),
                 child: CachedNetworkImage(
                   imageUrl: article.imageUrl,
-                  height: 32.h,
+                  height: 26.h,
                   width: double.infinity,
                   fit: BoxFit.fill,
                   placeholder: (context, url) => Center(
