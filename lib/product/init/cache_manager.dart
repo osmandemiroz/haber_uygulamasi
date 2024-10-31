@@ -1,6 +1,6 @@
 // ignore_for_file: lines_longer_than_80_chars
 
-import 'package:haber_uygulamasi/product/model/article.dart';
+import 'package:haber_uygulamasi/feature/model/article.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 /// [CacheManager] is a class that provides methods to cache and retrieve news data from the Hive database.

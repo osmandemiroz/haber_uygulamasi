@@ -1,8 +1,9 @@
 // ignore_for_file: public_member_api_docs, avoid_dynamic_calls
 
 import 'dart:convert';
+
+import 'package:haber_uygulamasi/feature/model/article.dart';
 import 'package:haber_uygulamasi/product/core/api_constants.dart';
-import 'package:haber_uygulamasi/product/model/article.dart';
 import 'package:http/http.dart' as http;
 
 class ApiService {

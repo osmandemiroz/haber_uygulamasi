@@ -1,8 +1,8 @@
 // ignore_for_file: public_member_api_docs
 
 import 'package:flutter/material.dart';
+import 'package:haber_uygulamasi/feature/model/article.dart';
 import 'package:haber_uygulamasi/feature/widgets/news_card_widget.dart';
-import 'package:haber_uygulamasi/product/model/article.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class NewsListWidget extends StatelessWidget {

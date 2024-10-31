@@ -3,9 +3,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:haber_uygulamasi/feature/model/article.dart';
 import 'package:haber_uygulamasi/feature/view/full_article_view.dart';
 import 'package:haber_uygulamasi/product/core/app_constants.dart';
-import 'package:haber_uygulamasi/product/model/article.dart';
 import 'package:intl/intl.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 

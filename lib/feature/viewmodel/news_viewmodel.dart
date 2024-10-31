@@ -2,8 +2,8 @@
 // ignore_for_file: public_member_api_docs
 
 import 'package:flutter/foundation.dart';
+import 'package:haber_uygulamasi/feature/model/article.dart';
 import 'package:haber_uygulamasi/product/init/cache_manager.dart';
-import 'package:haber_uygulamasi/product/model/article.dart';
 import 'package:haber_uygulamasi/product/service/news_api_service.dart';
 
 class NewsViewModel extends ChangeNotifier {
